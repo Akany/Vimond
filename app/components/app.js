@@ -1,12 +1,23 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
+import AssetsList from './assets-list';
+
 export default class App extends React.Component {
     render() {
         return (
             <Router>
-                <div>Home</div>
+                <div>
+                    <Route path="/assets" component={AssetsList} />
+                    <Route path="/asset/:id" component={Home} />
+                </div>
             </Router>
         );
     }
 }
+
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+)
