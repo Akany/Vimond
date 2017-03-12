@@ -3,6 +3,8 @@ import React from 'react';
 import {loadAsset} from '../../services/assets-proxy';
 import './asset-details.scss';
 
+import AssetStream from '../asset-stream';
+
 export default class AssetDetails extends React.Component {
     constructor(props) {
         super(props);
@@ -33,50 +35,52 @@ export default class AssetDetails extends React.Component {
             return <div>Loading...</div>
         }
 
-        console.log(this.state.asset);
         return (
             <div className="asset-details">
-                <div className="image-thumb">
-                    <img src={this.state.asset.imageUrl} />
-                </div>
-                <div className="image-meta">
-                    <div className="image-meta-item">
-                        <label>
-                            Title
-                            <input value={this.state.asset.title} onChange={this.onChange('title')}/>
-                        </label>
+                <header>
+                    <div className="image-thumb">
+                        <img src={this.state.asset.imageUrl} />
                     </div>
-                    <div className="image-meta-item">
-                        <label>
-                            Id
-                            <input defaultValue={this.state.asset['@id']}/>
-                        </label>
+                    <div className="image-meta">
+                        <div className="image-meta-item">
+                            <label>
+                                Title
+                                <input value={this.state.asset.title} onChange={this.onChange('title')}/>
+                            </label>
+                        </div>
+                        <div className="image-meta-item">
+                            <label>
+                                Id
+                                <input defaultValue={this.state.asset['@id']}/>
+                            </label>
+                        </div>
+                        <div className="image-meta-item">
+                            <label>
+                                Uri
+                                <input value={this.state.asset['@uri']} onChange={this.onChange('@uri')}/>
+                            </label>
+                        </div>
+                        <div className="image-meta-item">
+                            <label>
+                                Description
+                                <input value={this.state.asset.description} onChange={this.onChange('description')}/>
+                            </label>
+                        </div>
+                        <div className="image-meta-item">
+                            <label>
+                                Create time
+                                <input defaultValue={this.state.asset.createTime}/>
+                            </label>
+                        </div>
+                        <div className="image-meta-item">
+                            <label>
+                                Update time
+                                <input defaultValue={this.state.asset.updateTime}/>
+                            </label>
+                        </div>
                     </div>
-                    <div className="image-meta-item">
-                        <label>
-                            Uri
-                            <input value={this.state.asset['@uri']} onChange={this.onChange('@uri')}/>
-                        </label>
-                    </div>
-                    <div className="image-meta-item">
-                        <label>
-                            Description
-                            <input value={this.state.asset.description} onChange={this.onChange('description')}/>
-                        </label>
-                    </div>
-                    <div className="image-meta-item">
-                        <label>
-                            Create time
-                            <input defaultValue={this.state.asset.createTime}/>
-                        </label>
-                    </div>
-                    <div className="image-meta-item">
-                        <label>
-                            Update time
-                            <input defaultValue={this.state.asset.updateTime}/>
-                        </label>
-                    </div>
-                </div>
+                </header>
+                <AssetStream id={this.props.match.params.id} />
             </div>
         );
     }

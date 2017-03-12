@@ -1,5 +1,8 @@
 .asset-details {
-    display: flex;
+    header {
+        display: flex;
+        margin-bottom: 15px;
+    }
 
     .image-thumb {
         width: 400px;
@@ -14,7 +17,7 @@
 
         .image-meta-item {
             margin-bottom: 15px;
-            
+
             input {
                 display: block;
             }

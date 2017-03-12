@@ -16,6 +16,14 @@ export function loadAsset(id) {
         .then(body => body.asset);
 }
 
+export function loadAssetStream(id, protocol = 'HLS') {
+    const url = [VIMOND_ASSET, id, 'play.json'].join('/') + '?protocol=' + protocol;
+
+    return fetch(url)
+        .then(toJson)
+        .then(body => body.playback.items.item.url);
+}
+
 function toJson(response) {
     return response.json();
 }
