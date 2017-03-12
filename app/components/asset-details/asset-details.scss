@@ -1,0 +1,23 @@
+.asset-details {
+    display: flex;
+
+    .image-thumb {
+        width: 400px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .image-meta {
+        margin-left: 25px;
+
+        .image-meta-item {
+            margin-bottom: 15px;
+            
+            input {
+                display: block;
+            }
+        }
+    }
+}

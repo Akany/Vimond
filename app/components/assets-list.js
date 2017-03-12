@@ -16,7 +16,6 @@ export default class AssetsList extends React.Component {
         loadAssets()
             .then(assets => {
                 this.setState({assets});
-                console.log(assets);
             });
     }
 
@@ -34,7 +33,9 @@ export default class AssetsList extends React.Component {
 
             return (
                 <li key={id}>
-                    <Link to={`/asset/${id}`}>{asset['@uri']}</Link>
+                    <Link to={`/asset/${id}`}>
+                        {asset['@uri']}
+                    </Link>
                 </li>
             );
         });
