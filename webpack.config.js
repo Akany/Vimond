@@ -29,6 +29,10 @@ module.exports = {
         ]
     },
 
+    devServer: {
+        historyApiFallback: true
+    },
+
     plugins: [
         new htmlWebpackPlugin({
             template: path.resolve('app/index.html')
